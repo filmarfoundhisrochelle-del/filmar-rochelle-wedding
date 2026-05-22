@@ -1,9 +1,6 @@
-fastapi==0.110.0
-uvicorn==0.27.1
-motor==3.3.2
-pydantic==2.6.1
-email-validator==2.1.0
-python-dotenv==1.0.1
-starlette==0.36.3
-annotated-types==0.6.0
-pydantic-core==2.16.3
+fastapi
+uvicorn
+motor
+pydantic[email]
+python-dotenv
+email-validator
