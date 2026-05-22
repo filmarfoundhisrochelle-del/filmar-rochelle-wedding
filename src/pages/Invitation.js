@@ -10,6 +10,7 @@ import { WEDDING } from "../lib/wedding";
 
 const HERO_BG = "https://images.pexels.com/photos/931177/pexels-photo-931177.jpeg?auto=compress&cs=tinysrgb&w=1600";
 const TABLE_2 = "https://images.pexels.com/photos/13591097/pexels-photo-13591097.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
+const COUPLE_PHOTO = "/couple.jpg";
 
 const fadeUp = { hidden:{opacity:0,y:24}, visible:{opacity:1,y:0,transition:{duration:0.9,ease:"easeOut"}} };
 
@@ -70,7 +71,7 @@ export default function Invitation() {
             <div><p className="text-[10px] tracking-[0.35em] uppercase text-[#857F76]">The Hour</p><p className="font-serif-display text-3xl mt-2 leading-tight">6:00 PM</p><p className="text-sm text-[#857F76] mt-1 italic">Arrival from 5:30 PM</p></div>
           </motion.div>
           <motion.div initial="hidden" whileInView="visible" viewport={{once:true}} variants={fadeUp} className="md:col-span-2 md:row-span-2 overflow-hidden border border-[#E5E1D8] bg-[#E2DAC6]">
-            <img src={TABLE_2} alt="Reception setting" className="w-full h-full object-cover"/>
+            <img src={COUPLE_PHOTO} alt="Filmar and Rochelle" className="w-full h-full object-cover"/>
           </motion.div>
           <motion.div initial="hidden" whileInView="visible" viewport={{once:true}} variants={fadeUp} className="md:col-span-4 border border-[#E5E1D8] bg-white p-8 flex flex-col justify-between" data-testid="detail-card-venue">
             <MapPin size={22} strokeWidth={1.2} className="text-[#C87C5B]"/>
@@ -127,7 +128,7 @@ export default function Invitation() {
             <h2 className="font-serif-display text-4xl sm:text-5xl mt-6 leading-tight">Will you be joining us at the table?</h2>
             <p className="mt-6 text-[#4A463F] leading-relaxed">We've reserved seats just for you. Kindly confirm whether you'll be joining us so we can prepare the perfect place setting for you and your family.</p>
             <p className="mt-4 text-sm text-[#857F76] italic">Kindly respond by {WEDDING.rsvpDeadline}.</p>
-            <div className="mt-10 hidden lg:block"><div className="aspect-[4/3] overflow-hidden border border-[#E5E1D8]"><img src={TABLE_2} alt="Reception setting" className="w-full h-full object-cover"/></div></div>
+            <div className="mt-10 hidden lg:block"><div className="aspect-[4/3] overflow-hidden border border-[#E5E1D8]"><img src={COUPLE_PHOTO} alt="Filmar and Rochelle" className="w-full h-full object-cover"/></div></div>
           </motion.div>
           <motion.div initial="hidden" whileInView="visible" viewport={{once:true,amount:0.2}} variants={fadeUp} className="lg:col-span-3">
             <div className="bg-white border border-[#E5E1D8] p-8 sm:p-12"><RSVPForm onSubmitted={() => setRefreshKey((k) => k+1)}/></div>
