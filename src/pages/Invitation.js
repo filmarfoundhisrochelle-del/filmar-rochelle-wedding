@@ -95,11 +95,8 @@ export default function Invitation() {
 
       {/* DRESS CODE */}
       <Section id="dress-code" className="bg-[#FBF7F2]">
-        <motion.div initial={{opacity:0,y:24}} whileInView={{opacity:1,y:0}} viewport={{once:true,amount:0.15}} transition={{duration:1}} className="max-w-4xl mx-auto text-center" data-testid="dress-code-content">
-          <div className="max-w-2xl mx-auto">
-            <img src="/attire-guide.png" alt="Semi-formal attire guide" className="w-full h-auto" />
-          </div>
-          </div>
+        <motion.div initial={{opacity:0,y:24}} whileInView={{opacity:1,y:0}} viewport={{once:true,amount:0.15}} transition={{duration:1}} className="max-w-3xl mx-auto" data-testid="dress-code-content">
+          <img src="/attire-guide.png" alt="Semi-formal attire guide" className="w-full h-auto" />
         </motion.div>
       </Section>
 
