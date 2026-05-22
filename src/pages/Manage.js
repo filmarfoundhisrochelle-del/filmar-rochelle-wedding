@@ -128,7 +128,7 @@ const RSVPTracker = ({ passcode, onChange }) => {
     catch { toast.error("Failed to load RSVPs."); }
     finally { setLoading(false); }
   };
-  useEffect(()=>{fetchAll();},[]);
+  useEffect(()=>{fetchAll();},[fetchAll]);
   const remove = async (id) => {
     if (!window.confirm("Remove this RSVP?")) return;
     try { await axios.delete(`${API}/host/rsvps/${id}`,{headers:{"X-Host-Passcode":passcode}}); toast.success("RSVP removed"); fetchAll(); }
