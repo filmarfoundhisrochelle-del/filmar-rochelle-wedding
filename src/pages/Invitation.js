@@ -9,7 +9,6 @@ import SaveTheDate from "../components/SaveTheDate";
 import { WEDDING } from "../lib/wedding";
 
 const HERO_BG = "https://images.pexels.com/photos/931177/pexels-photo-931177.jpeg?auto=compress&cs=tinysrgb&w=1600";
-const COUPLE_PHOTO = "/couple.jpg";
 const TABLE_2 = "https://images.pexels.com/photos/13591097/pexels-photo-13591097.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940";
 const COUPLE_PHOTO = "/couple.jpg";
 
