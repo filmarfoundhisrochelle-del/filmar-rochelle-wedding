@@ -122,12 +122,12 @@ const LinkGenerator = () => {
 const RSVPTracker = ({ passcode, onChange }) => {
   const [rsvps, setRsvps] = useState([]);
   const [loading, setLoading] = useState(true);
-  const fetchAll = async () => {
+  const fetchAll = React.useCallback(async () => {
     setLoading(true);
     try { const res = await axios.get(`${API}/host/rsvps`,{headers:{"X-Host-Passcode":passcode}}); setRsvps(res.data||[]); onChange?.(res.data||[]); }
     catch { toast.error("Failed to load RSVPs."); }
     finally { setLoading(false); }
-  };
+  }, [passcode]);
   useEffect(()=>{fetchAll();},[fetchAll]);
   const remove = async (id) => {
     if (!window.confirm("Remove this RSVP?")) return;
