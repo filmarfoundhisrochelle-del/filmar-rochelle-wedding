@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "../../lib/utils";
 export const Tabs = ({ defaultValue, children, className }) => {
   const [active, setActive] = useState(defaultValue);
   return <div className={className}>{React.Children.map(children, c => React.cloneElement(c, { activeTab: active, setActiveTab: setActive }))}</div>;

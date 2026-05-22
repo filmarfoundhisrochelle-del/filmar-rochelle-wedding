@@ -1,5 +1,5 @@
 import React from "react";
-import { cn } from "@/lib/utils";
+import { cn } from "../../lib/utils";
 export const Table = React.forwardRef(({ className, ...props }, ref) => (<div className="relative w-full overflow-auto"><table ref={ref} className={cn("w-full caption-bottom text-sm", className)} {...props} /></div>));
 export const TableHeader = React.forwardRef(({ className, ...props }, ref) => (<thead ref={ref} className={cn("[&_tr]:border-b", className)} {...props} />));
 export const TableBody = React.forwardRef(({ className, ...props }, ref) => (<tbody ref={ref} className={cn("[&_tr:last-child]:border-0", className)} {...props} />));
