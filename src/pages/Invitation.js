@@ -98,10 +98,8 @@ export default function Invitation() {
         <motion.div initial={{opacity:0,y:24}} whileInView={{opacity:1,y:0}} viewport={{once:true,amount:0.15}} transition={{duration:1}} className="max-w-4xl mx-auto text-center" data-testid="dress-code-content">
           <Eyebrow>Dress Code</Eyebrow>
           <h2 className="font-serif-display text-4xl sm:text-6xl mt-6 mb-10">Semi-Formal Attire</h2>
-          <p className="font-serif-display italic text-xl text-[#4A463F] mb-8">Think refined, romantic, and polished.</p>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6 text-left mb-10">
-            <div className="border border-[#E5E1D8] bg-white p-8"><p className="text-[10px] tracking-[0.35em] uppercase text-[#857F76] mb-4">Ladies</p><p className="text-[#4A463F] leading-relaxed">Long or midi dresses, dressy coordinates, elegant jumpsuits, or flowy silhouettes. Opt for soft fabrics, playful prints, and refined details.</p></div>
-            <div className="border border-[#E5E1D8] bg-white p-8"><p className="text-[10px] tracking-[0.35em] uppercase text-[#857F76] mb-4">Gentlemen</p><p className="text-[#4A463F] leading-relaxed">Cotton pants or slacks with an elegant sweater top. A refined and modern alternative to the classic suit.</p></div>
+          <div className="max-w-2xl mx-auto">
+            <img src="/attire-guide.png" alt="Semi-formal attire guide" className="w-full h-auto" />
           </div>
           <div className="border border-[#E5E1D8] bg-white p-8">
             <p className="text-[10px] tracking-[0.35em] uppercase text-[#857F76] mb-6">Wedding Color Palette</p>
