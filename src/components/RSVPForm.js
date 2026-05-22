@@ -25,6 +25,7 @@ export const RSVPForm = ({ onSubmitted }) => {
   }, []);
 
   const [form, setForm] = useState({ ...initialState, name: prefillName });
+  const [confirmedSeats, setConfirmedSeats] = useState(reservedSeats);
   const [submitting, setSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
 
@@ -36,7 +37,7 @@ export const RSVPForm = ({ onSubmitted }) => {
     e.preventDefault();
     if (!form.name.trim()) { toast.error("Please share your name so we know who's coming."); return; }
     const attending = form.attending === "yes";
-    const seats = attending ? reservedSeats : 0;
+    const seats = attending ? confirmedSeats : 0;
     setSubmitting(true);
     try {
       await axios.post(`${API}/rsvp`, { name: form.name.trim(), email: form.email.trim() || null, attending, seats, message: form.message.trim() || null });
@@ -63,11 +64,15 @@ export const RSVPForm = ({ onSubmitted }) => {
     <form onSubmit={handleSubmit} className="space-y-6" data-testid="rsvp-form">
       <div className="border border-[#C87C5B]/30 bg-[#FFF6F0] px-5 py-5 text-center" data-testid="reserved-seats-notice">
         <p className="text-[10px] tracking-[0.35em] uppercase text-[#857F76]">We are saving</p>
-        <p className="font-serif-display text-3xl sm:text-4xl text-[#C87C5B] mt-1 leading-none">
-          <span data-testid="reserved-seats-count">{reservedSeats}</span>
-          <span className="ml-2 text-[#2B2824]">{reservedSeats === 1 ? "seat" : "seats"}</span>
-        </p>
-        <p className="mt-2 text-sm text-[#4A463F] italic">for you {reservedSeats > 1 ? "and family" : ""} at our reception.</p>
+        <div className="flex items-center justify-center gap-4 mt-1">
+          <button type="button" onClick={()=>setConfirmedSeats(s=>Math.max(1,s-1))} className="w-10 h-10 border border-[#C87C5B] text-[#C87C5B] text-xl hover:bg-[#FFF6F0]">−</button>
+          <p className="font-serif-display text-3xl sm:text-4xl text-[#C87C5B] leading-none">
+            <span>{confirmedSeats}</span>
+            <span className="ml-2 text-[#2B2824] text-2xl">{confirmedSeats === 1 ? "seat" : "seats"}</span>
+          </p>
+          <button type="button" onClick={()=>setConfirmedSeats(s=>Math.min(12,s+1))} className="w-10 h-10 border border-[#C87C5B] text-[#C87C5B] text-xl hover:bg-[#FFF6F0]">+</button>
+        </div>
+        <p className="mt-2 text-sm text-[#4A463F] italic">for you {confirmedSeats > 1 ? "and family" : ""} at our reception.</p>
       </div>
       <div className="space-y-2">
         <Label htmlFor="name" className="text-xs tracking-[0.25em] uppercase text-[#857F76]">Full Name</Label>
