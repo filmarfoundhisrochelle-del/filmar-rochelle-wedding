@@ -110,7 +110,7 @@ export default function Invitation() {
             <h2 className="font-serif-display text-4xl sm:text-5xl mt-6 leading-tight">Will you be joining us at the table?</h2>
             <p className="mt-6 text-[#4A463F] leading-relaxed">We've reserved seats just for you. Kindly confirm whether you'll be joining us so we can prepare the perfect place setting for you and your family.</p>
             <p className="mt-4 text-sm text-[#857F76] italic">Kindly respond by {WEDDING.rsvpDeadline}.</p>
-            <div className="mt-10 hidden lg:block"><div className="aspect-[4/3] overflow-hidden border border-[#E5E1D8]"><img src={COUPLE_PHOTO} alt="Filmar and Rochelle" className="w-full h-full object-cover"/></div></div>
+            <div className="mt-10"><div className="aspect-[4/3] overflow-hidden border border-[#E5E1D8]"><img src={COUPLE_PHOTO} alt="Filmar and Rochelle" className="w-full h-full object-cover"/></div></div>
           </motion.div>
           <motion.div initial="hidden" whileInView="visible" viewport={{once:true,amount:0.2}} variants={fadeUp} className="lg:col-span-3">
             <div className="bg-white border border-[#E5E1D8] p-8 sm:p-12"><RSVPForm onSubmitted={() => setRefreshKey((k) => k+1)}/></div>
