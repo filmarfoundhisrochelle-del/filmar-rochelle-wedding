@@ -19,7 +19,7 @@ export const SaveTheDate = ({ startISO, durationHours=4 }) => {
           <CalendarIcon size={14} strokeWidth={1.5} />Save the date<ChevronDown size={12} strokeWidth={1.5} />
         </button>
       </DropdownMenuTrigger>
-      <DropdownMenuContent align="center" className="bg-white border border-[#E5E1D8] min-w-[260px] p-0 rounded-none shadow-md" data-testid="save-the-date-menu">
+      <DropdownMenuContent align="center" side="top" className="bg-white border border-[#E5E1D8] min-w-[260px] p-0 rounded-none shadow-md" data-testid="save-the-date-menu">
         <div className="px-4 py-3 border-b border-[#E5E1D8] bg-[#FBF7F2]"><p className="text-[10px] tracking-[0.3em] uppercase text-[#857F76]">Add to calendar</p></div>
         <Option label="Google Calendar" sublabel="Opens in a new tab" onClick={() => window.open(googleUrl(event),"_blank","noopener")} testid="cal-option-google" />
         <Option label="Apple Calendar" sublabel="Downloads .ics file" onClick={() => downloadIcs(event)} testid="cal-option-apple" />
