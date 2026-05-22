@@ -124,7 +124,7 @@ export default function Invitation() {
           <p className="font-script text-5xl text-[#C87C5B]">Filmar &amp; Rochelle</p>
           <p className="mt-4 text-xs tracking-[0.35em] uppercase text-[#857F76]">06 · 12 · 2026 — Quezon City</p>
           <p className="mt-8 font-serif-display italic text-lg text-[#4A463F]">{WEDDING.hashtag}</p>
-          <p className="mt-8 text-xs text-[#857F76]">With love, from the Filmar &amp; Rochelle family</p>
+          <p className="mt-8 text-xs text-[#857F76]">With love, from Filmar &amp; Rochelle family</p>
         </div>
       </footer>
     </main>
