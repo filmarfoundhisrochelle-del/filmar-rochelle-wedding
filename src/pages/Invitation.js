@@ -96,22 +96,9 @@ export default function Invitation() {
       {/* DRESS CODE */}
       <Section id="dress-code" className="bg-[#FBF7F2]">
         <motion.div initial={{opacity:0,y:24}} whileInView={{opacity:1,y:0}} viewport={{once:true,amount:0.15}} transition={{duration:1}} className="max-w-4xl mx-auto text-center" data-testid="dress-code-content">
-          <Eyebrow>Dress Code</Eyebrow>
-          <h2 className="font-serif-display text-4xl sm:text-6xl mt-6 mb-10">Semi-Formal Attire</h2>
           <div className="max-w-2xl mx-auto">
             <img src="/attire-guide.png" alt="Semi-formal attire guide" className="w-full h-auto" />
           </div>
-          <div className="border border-[#E5E1D8] bg-white p-8">
-            <p className="text-[10px] tracking-[0.35em] uppercase text-[#857F76] mb-6">Wedding Color Palette</p>
-            <div className="flex flex-wrap justify-center gap-6">
-              {[["#c2673d","Terracotta"],["#5b6b3a","Olive"],["#8a9e72","Sage"],["#c47880","Dusty Rose"],["#6e2232","Wine"],["#d4b483","Champagne"],["#1e3558","Midnight Blue"]].map(([color,name]) => (
-                <div key={name} className="flex flex-col items-center gap-2"><div className="w-12 h-12 rounded-full border border-black/10" style={{background:color}}/><span className="text-[9px] tracking-[2px] uppercase text-[#857F76]">{name}</span></div>
-              ))}
-            </div>
-            <p className="text-[10px] tracking-[0.35em] uppercase text-[#857F76] mt-8 mb-4">Kindly avoid</p>
-            <div className="flex flex-wrap justify-center gap-3">
-              {["Jeans","T-shirts","Rubber shoes","Athletic wear","Bright / neon colors"].map(item => (<span key={item} className="px-4 py-2 border border-red-200 bg-red-50 text-red-700 text-xs tracking-wide rounded-full">✕ {item}</span>))}
-            </div>
           </div>
         </motion.div>
       </Section>
