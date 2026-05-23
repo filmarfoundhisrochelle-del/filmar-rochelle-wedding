@@ -9,11 +9,13 @@ from pathlib import Path
 from pydantic import BaseModel, Field, ConfigDict, EmailStr
 from typing import Optional, List
 import uuid
+import resend
 from datetime import datetime, timezone
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
 
+resend.api_key = os.environ.get("RESEND_API_KEY", "")
 mongo_url = os.environ['MONGO_URL'] + ('&tlsAllowInvalidCertificates=true' if 'tlsAllowInvalidCertificates' not in os.environ.get('MONGO_URL', '') else '')
 client = AsyncIOMotorClient(mongo_url)
 db = client[os.environ['DB_NAME']]
@@ -60,6 +62,24 @@ async def submit_rsvp(payload: RSVPCreate, background_tasks: BackgroundTasks):
     doc = rsvp.model_dump()
     doc['created_at'] = doc['created_at'].isoformat()
     await db.rsvps.insert_one(doc)
+    # Send email notification
+    try:
+        status = "Joyfully accepts" if payload.attending else "Regretfully declines"
+        resend.Emails.send({
+            "from": "onboarding@resend.dev",
+            "to": "filmarfoundhisrochelle@gmail.com",
+            "subject": f"New RSVP: {payload.name}",
+            "html": f"""
+            <h2>New RSVP Received</h2>
+            <p><b>Name:</b> {payload.name}</p>
+            <p><b>Email:</b> {payload.email or 'Not provided'}</p>
+            <p><b>Status:</b> {status}</p>
+            <p><b>Seats:</b> {seats}</p>
+            <p><b>Message:</b> {payload.message or 'None'}</p>
+            """
+        })
+    except Exception as e:
+        pass
     return rsvp
 
 @api_router.get("/rsvp/stats", response_model=RSVPStats)
